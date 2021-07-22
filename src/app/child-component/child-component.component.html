@@ -1,13 +1,8 @@
-<div class = 'inp'>
-    <div >
-        <input  #searchItem (keyup) = 'searchVal(searchItem.value)' >
-        <i>Search</i>
-    
-    </div>
-    
-    <div >
-        <input #inputValue >
-        <button (click) = 'addNewItem(inputValue.value)  ' >Add Fild</button>
-    </div>
-
-</div>
+ <div>
+     <tr>
+         <td>
+             {{ itemFromParent }}
+             <button (click) = 'destroyButton()'>Remove</button>
+         </td>
+     </tr>
+ </div>

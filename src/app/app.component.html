@@ -1,11 +1,16 @@
-
-<app-child-component (outputItem) = 'addItem($event)' (outputSearch) = 'search($event)'  ></app-child-component>
-<div class = 'tr-td'>   
-    <tr *ngFor = ' let item of logicObj.items index as i'>
-        <button (click) = "remove(i)" >Remove</button>
-        <td>
-            {{item}}        
-        </td>
-    </tr>
-
+<div class = 'inp'>
+    <div >
+        <input  #searchItem (keyup) = 'search(searchItem.value)' >
+        <i>Search</i>
+    </div>
+    
+    <div >
+        <input #inputValue >
+        <button (click) = 'addItem(inputValue.value)' >Add Fild</button>
+    </div>
 </div>
+
+
+<app-child-component *ngFor = 'let item of logicObj.items ; index as i' [itemFromParent] = 'item'
+ (removeButton) = 'logicObj.remove(i)'></app-child-component>
+

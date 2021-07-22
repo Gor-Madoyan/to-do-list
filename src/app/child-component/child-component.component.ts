@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-child-component',
@@ -7,18 +7,16 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class ChildComponentComponent implements OnInit {
 
-  @Output() outputItem = new EventEmitter()
-  @Output() outputSearch = new EventEmitter()
+
+  @Output() removeButton = new EventEmitter()
+  @Input() itemFromParent:string = ''
+
   constructor() { }
 
-  addNewItem(val:any) {
-    this.outputItem.emit(val)
+  destroyButton() {
+    this.removeButton.emit(this.itemFromParent)
   }
 
-  searchVal(val:any) {
-    this.outputSearch.emit(val)
-  } 
-  
   ngOnInit(): void {
   }
 

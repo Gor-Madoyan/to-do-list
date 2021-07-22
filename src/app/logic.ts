@@ -6,7 +6,6 @@ export class LogicToDoList{
   searchValue:string = ''
   items:Array<string> = ['Gor', 'Lilit', 'Hovhannes']
   fakeData:Array<string> = [...this.items]
-  // fakeData:Array<string> = [...this.items]
   searchFildClean :string = ''
 
   addItem(val:string) {
@@ -25,8 +24,9 @@ export class LogicToDoList{
   time:any
 
   search(item:any) {
- 
+    
     if(!this.count) {
+      this.count = 0
        this.time =  setTimeout (()=>{
         this.items.filter((val:any, i:number)=>{
      
@@ -35,9 +35,9 @@ export class LogicToDoList{
             this.items = [];
             this.items[i] = val
           }) 
-        }, 2000)
+        }, 1000)
     }else {
-      this.count = 0
+      this.count++
       clearTimeout(this.time)
     }
     !item? this.items = this.fakeData:item

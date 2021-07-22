@@ -9,7 +9,10 @@ import { LogicToDoList } from './logic'
 export class AppComponent {
 
    logicObj = new LogicToDoList()
- 
+    sayData(val:string) {
+      console.log(val);
+      
+    }
   addItem(val:string) {
     this.logicObj.addItem(val)
   };
